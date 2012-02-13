@@ -1358,7 +1358,7 @@ class Kohana_HTTP_HeaderTest extends Unittest_TestCase {
 	public function provider_send_headers()
 	{
 		$content_type = Kohana::$content_type.'; charset='.Kohana::$charset;
-		$version = Kohana::VERSION.(Kohana::FINAL == TRUE) ? '' : 'dev'.' ('.Kohana::CODENAME.')';
+		$version = Kohana::version();
 
 		return array(
 			array(
@@ -1374,7 +1374,7 @@ class Kohana_HTTP_HeaderTest extends Unittest_TestCase {
 				array(
 					'HTTP/1.1 200 OK',
 					'Content-Type: '.$content_type,
-					'X-Powered-By: Kohana Framework '.$version,
+					'X-Powered-By: '.$version,
 				),
 				TRUE,
 			),

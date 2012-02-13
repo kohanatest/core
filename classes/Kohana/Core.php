@@ -16,9 +16,9 @@
 class Kohana_Core {
 
 	// Release version and codename
-	const VERSION  = '3.3.0';
-	const CODENAME = 'Kolibri';
-	const FINAL    = FALSE;
+	const VERSION       = '3.3.0';
+	const CODENAME      = 'Kolibri';
+	const VERSION_FINAL = FALSE; # Set to true for release
 
 	// Common environment type constants for consistency and convenience
 	const PRODUCTION  = 10;
@@ -1019,6 +1019,16 @@ class Kohana_Core {
 			// Shutdown now to avoid a "death loop"
 			exit(1);
 		}
+	}
+
+	/**
+	 * Generates a version string based on the variables defined above.
+	 * 
+	 * @return string
+	 */
+	public static function version()
+	{
+		return 'Kohana Framework '.Kohana::VERSION.(Kohana::VERSION_FINAL == TRUE) ? '' : 'dev'.' ('.Kohana::CODENAME.')';
 	}
 
 } // End Kohana
