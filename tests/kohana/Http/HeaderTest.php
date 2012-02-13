@@ -1358,7 +1358,7 @@ class Kohana_HTTP_HeaderTest extends Unittest_TestCase {
 	public function provider_send_headers()
 	{
 		$content_type = Kohana::$content_type.'; charset='.Kohana::$charset;
-		$version = Kohana::VERSION.' ('.Kohana::CODENAME.')';
+		$version = Kohana::VERSION.(Kohana::FINAL == TRUE) ? '' : 'dev'.' ('.Kohana::CODENAME.')';
 
 		return array(
 			array(
